@@ -19,3 +19,8 @@ cert.pem
 dist
 .vscode
 demo-site/public
+
+.aider*
+logs/
+.commit0_scripts/
+.github/workflows/

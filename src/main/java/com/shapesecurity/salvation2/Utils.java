@@ -9,43 +9,26 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class Utils {
-	private static final Pattern BASE64_PATTERN = Pattern.compile("[a-zA-Z0-9+/\\-_]+=?=?");
-	public static final Predicate<String> IS_BASE64_VALUE = s -> BASE64_PATTERN.matcher(s).matches();
-	// https://infra.spec.whatwg.org/#split-on-ascii-whitespace
-	static List<String> splitOnAsciiWhitespace(String input) {
-		ArrayList<String> out = new ArrayList<>();
-		for (String value : input.split("[" + Constants.WHITESPACE_CHARS + "]")) {
-			if (value.isEmpty()) {
-				continue;
-			}
-			out.add(value);
-		}
-		return out;
-	}
 
-	// https://infra.spec.whatwg.org/#strictly-split
-	static List<String> strictlySplit(@Nonnull String s, char delim) {
-		int off = 0;
-		int next;
-		ArrayList<String> list = new ArrayList<>();
-		while ((next = s.indexOf(delim, off)) != -1) {
-			list.add(s.substring(off, next));
-			off = next + 1;
-		}
+    private static final Pattern BASE64_PATTERN = Pattern.compile("[a-zA-Z0-9+/\\-_]+=?=?");
 
-		list.add(s.substring(off));
-		return list;
-	}
+    public static final Predicate<String> IS_BASE64_VALUE = s -> BASE64_PATTERN.matcher(s).matches();
 
-	static String decodeString(@Nonnull String s) {
-		try {
-			return URLDecoder.decode(s, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			return s;
-		}
-	}
-	
-	private Utils() {
-		// Utility class
-	}
+    // https://infra.spec.whatwg.org/#split-on-ascii-whitespace
+    static List<String> splitOnAsciiWhitespace(String input) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    // https://infra.spec.whatwg.org/#strictly-split
+    static List<String> strictlySplit(@Nonnull String s, char delim) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    static String decodeString(@Nonnull String s) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    private Utils() {
+        // Utility class
+    }
 }
